@@ -17,7 +17,7 @@ if sys.version_info[0] < 3:
 else:
     import builtins
 builtins.__SKYOFSTARS__ = True
-import thefriendlystars
+import skyofstars
 version = skyofstars.__version__
 
 setup(name = "skyofstars",
