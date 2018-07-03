@@ -1,19 +1,20 @@
 from skyofstars.catalog import *
 
-def create_test_catalog(N=100):
+def create_test_catalog(N=10000):
     '''
     This function creates an example catalog to play with. It's not
     realistic astrophysically, but it's fun to play with!
     '''
 
-    N = 100
-    x = np.random.uniform(-1, 1, N)
-    y = np.random.uniform(-1, 1, N)
-    z = np.random.uniform(-1, 1, N)
-    c = coord.SkyCoord(x=x*u.pc, y=y*u.pc, z=z*u.pc, representation='cartesian')
-    example = Catalog(c)
+    x = np.random.uniform(-1, 1, N)*u.pc
+    y = np.random.uniform(-1, 1, N)*u.pc
+    z = np.random.uniform(-1, 1, N)*u.pc
+    r, lat, lon = coord.cartesian_to_spherical(x,y,z)
+    somecoordinates = coord.SkyCoord(l=lon, b=lat, distance=r, frame='galactic')
+    example = Catalog(somecoordinates)
+
     return example
 
 def test_catalog():
     example = create_test_catalog()
-    example.plot_radec()
+    example.plot_celestial()

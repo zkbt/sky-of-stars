@@ -45,6 +45,7 @@ class Catalog:
         # let's store the apparent magnitudes, if they are known
         self.apparentmagnitudes = apparentmagnitudes
 
+
     def plot_celestial(self, color='black', title='Celestial Coordinates', **kwargs):
         '''
         This function makes a plot of RA + Dec
