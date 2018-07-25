@@ -36,7 +36,7 @@ class Catalog:
         '''
 
         # store the array of coordinates inside this catalog object
-        self.coordinates = coordinates
+        self.coordinates = coordinates.transform_to('icrs')
 
         # every variable we define with a self. in front of it is accessible everywhere else inside the object
         self.ra = self.coordinates.icrs.ra
