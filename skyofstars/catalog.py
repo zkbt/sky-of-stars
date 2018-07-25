@@ -69,7 +69,7 @@ class Catalog:
         plt.scatter(self.ra, self.dec, c=color, **kwargs)
         plt.xlabel('Right Ascension ($^\circ$)')
         plt.ylabel('Declination ($^\circ$)')
-        plt.title(title)
+        plt.title("RA vs Dec")
 
     def plot_galactic(self):
         '''
@@ -77,7 +77,10 @@ class Catalog:
         '''
 
         # you can delete the "pass", and replace it with code!
-        pass
+        plt.scatter(self.l,self.b)
+        plt.xlabel("Longitude")
+        plt.ylabel("Latitude")
+        plt.title("Galactic Coordinates")
 
     def plot_galactic_xyz(self):
         '''
@@ -85,7 +88,17 @@ class Catalog:
         '''
 
         # you can delete the "pass", and replace it with code!
-        pass
+        plt.scatter(self.x,self.y)
+        plt.xlabel("X")
+        plt.ylabel("Y")
+        
+        plt.scatter(self.y,self.z)
+        plt.xlabel("Y")
+        plt.ylabel("Z")
+        
+        plt.scatter(self.x,self.z)
+        plt.xlabel("X")
+        plt.ylabel("Y")
 
     def animate(self):
         '''
